@@ -18,11 +18,11 @@
                 $results = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}LSlide_Config"); // Options in DB
                 if ($results):
                     foreach ($results as $key):
-                        $id = $key->LCS_id;
-                        $type = $key->LCS_Type;
-                        // $url_update =  "admin.php?page=update_lcs&select=".$id;
-                        // $url_delete = "admin.php?page=lcs&delete=".$id;
-                        $categories_id = unserialize($key->Category_ID);
+                        $id = $key->LSlide_id;
+                        $name = $key->LSlide_Name;
+                        // $url_update =  "admin.php?page=LSlide&select=".$id;
+                        // $url_delete = "admin.php?page=LSlide&delete=".$id;
+                        $settings = unserialize($key->LSlide_Settings);
                         $select_id = "cb-select-" . $id;
             ?>
                         <tr class="iedit level-0 type-page status-publish hentry">
@@ -56,17 +56,14 @@
                             <td class="title column-title has-row-actions column page-title">
                                 <span>
                                     <strong>
-                                    <?php if ($type === "1"): ?>
-                                        <strong> Slide </strong>
-                                    <?php elseif ($type === "2"): ?>
-                                        <strong> Card </strong>
-                                    <?php endif; ?>
+
+                                    </strong>
                                 </span>
                             </td>
                             <!-- Shortcode -->
                             <td class="column">
                                 <span>
-                                    <strong>[category_show num=<?= $key->LCS_id ?>]</strong>
+                                    <strong>[LSlide id=<?= $id ?>]</strong>
                                 </span>
                             </td>
                         </tr>
@@ -76,6 +73,12 @@
                         <td class="colspanchange" colspan="7">Sorry, None LSlide</td>
                     </tr>
                 <?php endif; ?>
+					<tr class="iedit btn_lslide_add">
+						<button class="page-title-action" href="" class="page-title-action">Ajouter</button>
+					</tr>
+					<tr class="iedit">
+
+					</tr>
             </tbody>
         </table>
     </div>
