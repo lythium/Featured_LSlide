@@ -15,6 +15,9 @@ class LSlide_Plugin
     {
         add_action('admin_menu', array($this, 'add_admin_menu'));
 
+        include_once plugin_dir_path(__FILE__).'class/LSlide_init.php';
+        new Initialise_LSlide();
+
         include_once plugin_dir_path(__FILE__).'class/LSlide_shortcode.php';
         new Shortcode_LSlide();
 
