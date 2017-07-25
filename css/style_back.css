@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+.btn_lslide_add {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
