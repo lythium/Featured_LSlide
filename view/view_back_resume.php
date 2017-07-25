@@ -14,21 +14,21 @@
             <tbody id"the-list">
             <?php
 
-
+                global $wpdb;
                 $results = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}LSlide_Config"); // Options in DB
                 if ($results):
                     foreach ($results as $key):
-                        $id = $key->LSlide_id;
-                        $name = $key->LSlide_Name;
-                        // $url_update =  "admin.php?page=LSlide&select=".$id;
-                        // $url_delete = "admin.php?page=LSlide&delete=".$id;
+                        $ID = $key->LSlide_id;
+                        $Name = $key->LSlide_Name;
+                        $url_update =  "admin.php?page=LSlide&select=".$ID;
+                        $url_delete = "admin.php?page=LSlide&delete=".$ID;
                         $settings = unserialize($key->LSlide_Settings);
-                        $select_id = "cb-select-" . $id;
+                        $select_id = "cb-select-" . $ID;
             ?>
                         <tr class="iedit level-0 type-page status-publish hentry">
                             <!-- ID -->
                             <td class="id-column column">
-                                <strong><span><?= $id ?></span></strong>
+                                <strong><span><?= $ID ?></span></strong>
                             </td>
                             <!-- Title -->
                             <td class="column-primary" data-colname="Titre">
@@ -36,18 +36,18 @@
                                     <span class="locked-avatar"></span>
                                     <span class="locked-text"></span>
                                 </div>
-                                <strong><a class="row-title" href=""><?= $key->LCS_Name ?></a></strong>
+                                <strong><a class="row-title" href=""><?= $Name ?></a></strong>
                                 <!-- Actions -->
                                 <div class="row-actions">
                                     <span class="edit inline">
                                         <!-- Update -->
-                                        <input type="hidden" name="select_id" value="<?= $id ?>">
+                                        <input type="hidden" name="select_id" value="<?= $ID ?>">
                                         <a href="<?= admin_url($url_update) ?>" >modifier</a>
                                     </span>
                                     <span class="inline"> | </span>
                                     <span class="trash inline">
                                         <!-- Delete -->
-                                        <input type="hidden" name="delete" value="<?= $id ?>">
+                                        <input type="hidden" name="delete" value="<?= $ID ?>">
                                         <a href="<?= admin_url($url_delete) ?>">Supprimer</a>
                                     </span>
                                 </div>
@@ -63,7 +63,7 @@
                             <!-- Shortcode -->
                             <td class="column">
                                 <span>
-                                    <strong>[LSlide id=<?= $id ?>]</strong>
+                                    <strong>[LSlide id=<?= $ID ?>]</strong>
                                 </span>
                             </td>
                         </tr>
@@ -74,7 +74,9 @@
                     </tr>
                 <?php endif; ?>
 					<tr class="iedit btn_lslide_add">
-						<button class="page-title-action" href="" class="page-title-action">Ajouter</button>
+					    <td>
+				        	<button class="page-title-action" href="" class="page-title-action">Ajouter</button>
+					    </td>
 					</tr>
 					<tr class="iedit">
 
