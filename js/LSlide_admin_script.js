@@ -1,4 +1,4 @@
-$=jQuery.noConflict();	
+$=jQuery.noConflict();
 $(document).ready(function(){
 	var $buttonAdd = $(".btn_lslide_add button");
 	var $buttonSubmit = $(".btn-submit");
