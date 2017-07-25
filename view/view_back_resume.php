@@ -75,11 +75,32 @@
                 <?php endif; ?>
 					<tr class="iedit btn_lslide_add">
 					    <td>
-				        	<button class="page-title-action" href="" class="page-title-action">Ajouter</button>
+				        	<button class="page-title-action" href="">Add</button>
 					    </td>
 					</tr>
-					<tr class="iedit">
+					<tr class="iedit tr-add-SLide">
+                        <form class="add_slide" action="#" method="post">
+                            <td>
 
+                            </td>
+                            <td>
+                                <label for="add_name">Nom du Slide</label>
+                                <input type="text" name="add_name" value="Add Slide's Name.">
+                            </td>
+                            <td>
+                                <label for="add_settings">Settings</label>
+                                <label for="add_number">Number of featured posts.</label>
+                                <select class="" name="add_number">
+                                    <option value="2">2</option>
+                                    <option value="2">3</option>
+                                    <option value="2">4</option>
+                                    <option value="2">6</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="submit" class="btn-submit page-title-action" name="button">Add</button>
+                            </td>
+                        </form>
 					</tr>
             </tbody>
         </table>

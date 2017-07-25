@@ -22,10 +22,10 @@ class LSlide_Plugin
         new Shortcode_LSlide();
 
         add_action('wp_enqueue_scripts', array( __CLASS__, 'enqueue_LSlide_styles' ));
-        // add_action('wp_enqueue_scripts', array( __CLASS__, 'enqueue_lSlide_scripts' ));
+        add_action('wp_enqueue_scripts', array( __CLASS__, 'enqueue_LSlide_scripts' ));
 
 		add_action('admin_enqueue_scripts', array( __CLASS__, 'enqueue_LSlide_styles_admin' ));
-		// add_action('admin_enqueue_scripts', array( __CLASS__, 'enqueue_lSlide_scripts_admin' ));
+		add_action('admin_enqueue_scripts', array( __CLASS__, 'enqueue_LSlide_scripts_admin' ));
 
         register_activation_hook(__FILE__, array('Initialise_LSlide', 'install'));
         register_uninstall_hook(__FILE__, array('Initialise_LSlide', 'uninstall'));
@@ -43,25 +43,25 @@ class LSlide_Plugin
 
     public static function enqueue_LSlide_styles()
     {
-        $css_file = plugins_url('css/style_front.css', __FILE__);
-        wp_enqueue_style('style_front', $css_file, false, "0.1");
+        $css_file = plugins_url('css/LSlide_style_front.css', __FILE__);
+        wp_enqueue_style('LSlide_style_front', $css_file, false, "0.1");
     }
 
     public static function enqueue_LSlide_scripts()
     {
-        $js_file = plugins_url('js/slider_script.js', __FILE__);
+        $js_file = plugins_url('js/LSlide_slider_script.js', __FILE__);
         wp_enqueue_script('LSlide_script', $js_file, array('jquery'), false, "0.1");
     }
 
 	public static function enqueue_LSlide_styles_admin()
 	{
-		$css_admin_file = plugins_url('css/style_back.css', __FILE__);
-		wp_enqueue_style('style_back', $css_admin_file, false, "0.1");
+		$css_admin_file = plugins_url('css/LSlide_style_back.css', __FILE__);
+		wp_enqueue_style('LSlide_style_back', $css_admin_file, false, "0.1");
 	}
 
 	public static function enqueue_LSlide_scripts_admin()
 	{
-		$js_admin_file = plugins_url('js/admin_script.js', __FILE__);
+		$js_admin_file = plugins_url('js/LSlide_admin_script.js', __FILE__);
 		wp_enqueue_script('LSlide_script_admin', $js_admin_file, array('jquery'), false, "0.1");
 	}
 }
