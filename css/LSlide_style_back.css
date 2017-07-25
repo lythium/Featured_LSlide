@@ -1,11 +1,22 @@
 @charset "UTF-8";
 
-.btn_lslide_add {
+.LSlide-display .manage-column {
+	width: 25%;
+}
+.LSlide-display .btn_lslide_add {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.tr-add-SLide {
+.LSlide-display .tr-add-SLide {
 	display: none
+}
+.LSlide-display form .submit-td {
+	display: flex;
+	flex-direction: column;
+}
+.LSlide-display form .options-td {
+	display: flex;
+	flex-direction: row;
 }
