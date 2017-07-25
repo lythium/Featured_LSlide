@@ -27,8 +27,8 @@ class LSlide_Plugin
 		add_action('admin_enqueue_scripts', array( __CLASS__, 'enqueue_LSlide_styles_admin' ));
 		// add_action('admin_enqueue_scripts', array( __CLASS__, 'enqueue_lSlide_scripts_admin' ));
 
-        register_activation_hook(__FILE__, array('Add_LSlide', 'install'));
-        register_uninstall_hook(__FILE__, array('Add_LSlide', 'uninstall'));
+        register_activation_hook(__FILE__, array('Initialise_LSlide', 'install'));
+        register_uninstall_hook(__FILE__, array('Initialise_LSlide', 'uninstall'));
     }
 
 	public function add_admin_menu()
@@ -38,7 +38,7 @@ class LSlide_Plugin
 
     public function menu_html()
     {
-        include_once plugin_dir_path(__FILE__).'views/view_back_resume.php';
+        include_once plugin_dir_path(__FILE__).'view/view_back_resume.php';
     }
 
     public static function enqueue_LSlide_styles()
@@ -49,7 +49,7 @@ class LSlide_Plugin
 
     public static function enqueue_LSlide_scripts()
     {
-        $js_file = plugins_url('javascript/lcs_script.js', __FILE__);
+        $js_file = plugins_url('js/slider_script.js', __FILE__);
         wp_enqueue_script('LSlide_script', $js_file, array('jquery'), false, "0.1");
     }
 
@@ -61,7 +61,7 @@ class LSlide_Plugin
 
 	public static function enqueue_LSlide_scripts_admin()
 	{
-		$js_admin_file = plugins_url('javascript/lcs_script_admin.js', __FILE__);
+		$js_admin_file = plugins_url('js/admin_script.js', __FILE__);
 		wp_enqueue_script('LSlide_script_admin', $js_admin_file, array('jquery'), false, "0.1");
 	}
 }
