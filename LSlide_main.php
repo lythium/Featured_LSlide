@@ -43,25 +43,25 @@ class LSlide_Plugin
 
     public static function enqueue_LSlide_styles()
     {
-        $css_file = plugins_url('css/LSlide_style_front.css', __FILE__);
+        $css_file = plugins_url('css/LSlide_style_front.min.css', __FILE__);
         wp_enqueue_style('LSlide_style_front', $css_file, false, "0.1");
     }
 
     public static function enqueue_LSlide_scripts()
     {
-        $js_file = plugins_url('js/LSlide_slider_script.js', __FILE__);
+        $js_file = plugins_url('js/LSlide_slider_script.min.js', __FILE__);
         wp_enqueue_script('LSlide_script', $js_file, array('jquery'), false, "0.1");
     }
 
 	public static function enqueue_LSlide_styles_admin()
 	{
-		$css_admin_file = plugins_url('css/LSlide_style_back.css', __FILE__);
+		$css_admin_file = plugins_url('css/LSlide_style_back.min.css', __FILE__);
 		wp_enqueue_style('LSlide_style_back', $css_admin_file, false, "0.1");
 	}
 
 	public static function enqueue_LSlide_scripts_admin()
 	{
-		$js_admin_file = plugins_url('js/LSlide_admin_script.js', __FILE__);
+		$js_admin_file = plugins_url('js/LSlide_admin_script.min.js', __FILE__);
 		wp_enqueue_script('LSlide_script_admin', $js_admin_file, array('jquery'), false, "0.1");
 	}
 }
