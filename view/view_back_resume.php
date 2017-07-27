@@ -73,24 +73,18 @@
                         <td class="colspanchange" colspan="7">Sorry, None LSlide</td>
                     </tr>
                 <?php endif; ?>
-					<tr class="iedit btn_lslide_add">
-					    <td>
-				        	<button class="page-title-action" href="">Add</button>
-					    </td>
-					</tr>
 					<tr class="iedit tr-add-SLide">
                         <form class="add_LSlide" action="#" method="post">
-                            <td>
-
-                            </td>
+    					    <td class="btn_lslide_add">
+    				        	<button type="button" class="page-title-action" href="">Add</button>
+    					    </td>
                             <!-- Button d'ajout -->
-                            <td class="options-td">
+                            <td class="options-td form-add-SLide">
                                 <label for="add_name">Nom du Slide</label>
                                 <input type="text" name="add_name" value="Add Slide's Name.">
                             </td>
                             <!-- Form d'ajout -->
-                            <td class="options-td">
-                                <label for="add_settings">Settings</label>
+                            <td class="options-td form-add-SLide">
                                 <label for="add_number">Number of featured posts.</label>
                                 <select class="" name="add_number">
                                     <option value="2">2</option>
@@ -99,9 +93,9 @@
                                     <option value="2">6</option>
                                 </select>
                             </td>
-                            <td class=".submit-td">
+                            <td class=".submit-td form-add-SLide">
                                 <button type="submit" class="btn-submit page-title-action" name="buttonSubmit">Add</button>
-                                <button type="button" class="btn-submit btn-cancel page-title-action" name="buttonCancel">X</button>
+                                <button type="button" class="btn-cancel page-title-action" name="buttonCancel">X</button>
                             </td>
                         </form>
 					</tr>

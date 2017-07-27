@@ -1,11 +1,18 @@
 $=jQuery.noConflict();
 $(document).ready(function(){
 	var $buttonAdd = $(".btn_lslide_add button");
-	var $buttonSubmit = $(".btn-submit");
-	var $formAdd = $(".tr-add-SLide");
+    var $buttonCancel = $(".btn-cancel");
+	var $formAdd = $(".form-add-SLide");
+    var $buttonSubmit = $(".btn-submit");
 
 	$buttonAdd.on("click", function(){
-		$buttonAdd.toggle(500);
-		$formAdd.toggle(250);
+		$buttonAdd.hide(0);
+		$formAdd.show(500);
+	})
+    $buttonCancel.on("click", function(){
+        $formAdd.hide(500);
+		setTimeout(function () {
+		   $buttonAdd.show(0);
+       },450);
 	})
 });

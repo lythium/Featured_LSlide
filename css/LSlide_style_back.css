@@ -8,18 +8,21 @@
 	flex-direction: column;
 	align-items: center;
 }
-
-.LSlide-display-backoff .tr-add-SLide {
+.LSlide-display-backoff .btn_lslide_add button {
+    width: 100%;
+    text-align: center;
+}
+.LSlide-display-backoff .form-add-SLide {
 	display: none
 }
-.LSlide-display-backoff form .submit-td {
+.LSlide-display-backoff .form-add-SLide .submit-td {
 	display: flex;
 	flex-direction: column;
 }
-.LSlide-display-backoff form .options-td {
+.LSlide-display-backoff .form-add-SLide .options-td {
 	display: flex;
 	flex-direction: row;
 }
-.LSlide-display-backoff form .btn-cancel {
+.LSlide-display-backoff .form-add-SLide .btn-cancel {
     background-color: #d52c2c;
 }
