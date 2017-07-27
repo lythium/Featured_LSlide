@@ -5,7 +5,7 @@ $(document).ready(function(){
 	var $formAdd = $(".tr-add-SLide");
 
 	$buttonAdd.on("click", function(){
-		$buttonAdd.toggle(0);
-		$formAdd.toggle(0);
+		$buttonAdd.toggle(500);
+		$formAdd.toggle(250);
 	})
 });

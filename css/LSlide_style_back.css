@@ -1,22 +1,25 @@
 @charset "UTF-8";
 
-.LSlide-display .manage-column {
+.LSlide-display-backoff .manage-column {
 	width: 25%;
 }
-.LSlide-display .btn_lslide_add {
+.LSlide-display-backoff .btn_lslide_add {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.LSlide-display .tr-add-SLide {
+.LSlide-display-backoff .tr-add-SLide {
 	display: none
 }
-.LSlide-display form .submit-td {
+.LSlide-display-backoff form .submit-td {
 	display: flex;
 	flex-direction: column;
 }
-.LSlide-display form .options-td {
+.LSlide-display-backoff form .options-td {
 	display: flex;
 	flex-direction: row;
+}
+.LSlide-display-backoff form .btn-cancel {
+    background-color: #d52c2c;
 }

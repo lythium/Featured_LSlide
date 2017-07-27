@@ -1,4 +1,4 @@
-<div id="acf-field-group-wrap" class="wrap LSlide-display">
+<div id="acf-field-group-wrap" class="wrap LSlide-display-backoff">
     <div class="acf-columns-2">
         <h1 class="wp-heading-inline"><?= get_admin_page_title() ?></h1>
         <p>Bienvenue sur la page d'accueil du plugin</p>
@@ -79,14 +79,16 @@
 					    </td>
 					</tr>
 					<tr class="iedit tr-add-SLide">
-                        <form class="add_slide" action="#" method="post">
+                        <form class="add_LSlide" action="#" method="post">
                             <td>
 
                             </td>
+                            <!-- Button d'ajout -->
                             <td class="options-td">
                                 <label for="add_name">Nom du Slide</label>
                                 <input type="text" name="add_name" value="Add Slide's Name.">
                             </td>
+                            <!-- Form d'ajout -->
                             <td class="options-td">
                                 <label for="add_settings">Settings</label>
                                 <label for="add_number">Number of featured posts.</label>
@@ -98,7 +100,8 @@
                                 </select>
                             </td>
                             <td class=".submit-td">
-                                <button type="submit" class="btn-submit page-title-action" name="button">Add</button>
+                                <button type="submit" class="btn-submit page-title-action" name="buttonSubmit">Add</button>
+                                <button type="button" class="btn-submit btn-cancel page-title-action" name="buttonCancel">X</button>
                             </td>
                         </form>
 					</tr>
