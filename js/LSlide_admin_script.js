@@ -7,12 +7,12 @@ $(document).ready(function(){
 
 	$buttonAdd.on("click", function(){
 		$buttonAdd.hide(0);
-		$formAdd.show(500);
+		$formAdd.show(0);
 	})
     $buttonCancel.on("click", function(){
-        $formAdd.hide(500);
+        $formAdd.hide(0);
 		setTimeout(function () {
 		   $buttonAdd.show(0);
-       },450);
+       },0);
 	})
 });
