@@ -38,7 +38,7 @@
                                 </div>
                                 <strong><a class="row-title" href=""><?= $Name ?></a></strong>
                                 <!-- Actions -->
-                                <div class="row-actions">
+                                <div class="row-actions" style="display:block;">
                                     <span class="edit inline">
                                         <!-- Update -->
                                         <input type="hidden" name="select_id" value="<?= $ID ?>">
@@ -76,7 +76,7 @@
 					<tr class="iedit tr-add-SLide">
                         <form class="add_LSlide" action="#" method="post">
     					    <td class="btn_lslide_add">
-    				        	<button type="button" class="page-title-action" href="">Add</button>
+    				        	<button type="button" class="btn btn-add" href="">Add LSlide</button>
     					    </td>
                             <!-- Button d'ajout -->
                             <td class="options-td form-add-SLide">
@@ -94,8 +94,8 @@
                                 </select>
                             </td>
                             <td class=".submit-td form-add-SLide">
-                                <button type="submit" class="btn-submit page-title-action" name="buttonSubmit">Add</button>
-                                <button type="button" class="btn-cancel page-title-action" name="buttonCancel">X</button>
+                                <button type="submit" class="btn btn-submit" name="buttonSubmit">Add</button>
+                                <button type="button" class="btn btn-cancel" name="buttonCancel">Cancel</button>
                             </td>
                         </form>
 					</tr>
