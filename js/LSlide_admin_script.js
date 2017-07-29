@@ -15,4 +15,7 @@ $(document).ready(function(){
 		   $buttonAdd.show(0);
        },0);
 	})
+
+    var $buttonUpdate = $('.btn-update');
+    var $hideResume = $('.hide-update')
 });

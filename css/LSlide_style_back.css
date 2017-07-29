@@ -65,3 +65,6 @@
     border-color: #d43f3a;
     text-shadow: 0 1px 0 rgba(0,0,0,0.2);
 }
+.LSlide-display-backoff .update-SLide .show-update {
+    display: none;
+}

@@ -26,45 +26,49 @@
                         $select_id = "cb-select-" . $ID;
             ?>
                         <tr class="iedit level-0 type-page status-publish hentry">
-                            <!-- ID -->
-                            <th class="id-column check-column column">
-                                <strong><span><?= $ID ?></span></strong>
-                            </th>
-                            <!-- Title -->
-                            <td class="title column-title has-row-actions column-primary page-title" data-colname="Titre">
-                                <div class="locked-info">';
-                                    <span class="locked-avatar"></span>
-                                    <span class="locked-text"></span>
-                                </div>
-                                <strong><a class="row-title" href=""><?= $Name ?></a></strong>
-                                <!-- Actions -->
-                                <div class="row-actions" style="left:0;">
-                                    <span class="edit inline">
-                                        <!-- Update -->
-                                        <input type="hidden" name="select_id" value="<?= $ID ?>">
-                                        <a href="<?= admin_url($url_update) ?>" >modifier</a>
+                            <form class="update_LSlide" action="<?= admin_url('admin.php?page=LSlide') ?>" method="post">
+                                <!-- ID -->
+                                <th class="id-column check-column column">
+                                    <strong class="hide-update"><span><?= $ID ?></span></strong>
+                                    <input type="hidden" name="update_id" value="<?= $ID ?>">
+                                </th>
+                                <!-- Title -->
+                                <td class="title column-title has-row-actions column-primary page-title" data-colname="Titre">
+                                    <div class="locked-info">';
+                                        <span class="locked-avatar"></span>
+                                        <span class="locked-text"></span>
+                                    </div>
+                                    <strong class="hide-update"><a class="row-title" href=""><?= $Name ?></a></strong>
+                                    <input class="show-update" type="hidden" name="update_name" value="<?= $Name ?>">
+                                    <!-- Actions -->
+                                    <div class="row-actions hide-update" style="left:0;">
+                                        <span class="edit inline">
+                                            <!-- Update -->
+                                            <input type="hidden" name="select_id" value="<?= $ID ?>">
+                                            <a class="btn-update" href="<?= admin_url($url_update) ?>" >modifier</a>
+                                        </span>
+                                        <span class="inline"> | </span>
+                                        <span class="trash inline">
+                                            <!-- Delete -->
+                                            <input type="hidden" name="delete" value="<?= $ID ?>">
+                                            <a href="<?= admin_url($url_delete) ?>">Supprimer</a>
+                                        </span>
+                                    </div>
+                                    <button type="button" class="toggle-row">
+                                        <span class="screen-reader-text">Afficher plus de détails</span>
+                                    </button>
+                                </td>
+                                <!-- Settings -->
+                                <td class="settings column-settings" data-colname="Settings">
+                                    <span><strong>Number featured Post: <?= $settings ?></strong></span>
+                                </td>
+                                <!-- Shortcode -->
+                                <td class="shortcode column-shortcode" data-colname="Shortcode">
+                                    <span>
+                                        <strong>[LSlide id=<?= $ID ?>]</strong>
                                     </span>
-                                    <span class="inline"> | </span>
-                                    <span class="trash inline">
-                                        <!-- Delete -->
-                                        <input type="hidden" name="delete" value="<?= $ID ?>">
-                                        <a href="<?= admin_url($url_delete) ?>">Supprimer</a>
-                                    </span>
-                                </div>
-                                <button type="button" class="toggle-row">
-                                    <span class="screen-reader-text">Afficher plus de détails</span>
-                                </button>
-                            </td>
-                            <!-- Settings -->
-                            <td class="settings column-settings" data-colname="Settings">
-                                <span><strong>Number featured Post: <?= $settings ?></strong></span>
-                            </td>
-                            <!-- Shortcode -->
-                            <td class="shortcode column-shortcode" data-colname="Shortcode">
-                                <span>
-                                    <strong>[LSlide id=<?= $ID ?>]</strong>
-                                </span>
-                            </td>
+                                </td>
+                            </form>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
