@@ -7,8 +7,8 @@
                 <tr>
                     <td scope="col" id="fields" class="manage-column column-cb check-column"><span>ID</span></td>
                     <th scope="col" id="fields" class="manage-column column-title column-primary column-fields">Name</th>
-                    <th scope="col" id="fields" class="manage-column column-fields">Settings</th>
-                    <th scope="col" id="fields" class="manage-column column-fields">Shortcode</th>
+                    <th scope="col" id="settings" class="manage-column column-fields">Settings</th>
+                    <th scope="col" id="shortcode" class="manage-column column-fields">Shortcode</th>
                 </tr>
             </thead>
             <tbody id="the-list">
@@ -56,11 +56,11 @@
                                 </button>
                             </td>
                             <!-- Settings -->
-                            <td class="title column-title has-row-actions column-primary page-title ">
+                            <td class="settings column-settings" data-colname="Settings">
                                 <span><strong>Number featured Post: <?= $settings ?></strong></span>
                             </td>
                             <!-- Shortcode -->
-                            <td class="column">
+                            <td class="shortcode column-shortcode" data-colname="Shortcode">
                                 <span>
                                     <strong>[LSlide id=<?= $ID ?>]</strong>
                                 </span>
@@ -72,7 +72,7 @@
                         <td class="colspanchange" colspan="7">Sorry, None LSlide</td>
                     </tr>
                 <?php endif; ?>
-					<tr class="iedit tr-add-SLide">
+					<tr class="iedit tr-add-SLide is-expanded">
                         <form class="add_LSlide" action="<?= admin_url('admin.php?page=LSlide') ?>" method="post">
     					    <th class="btn_lslide_add">
     				        	<button type="button" class="btn btn-add" href="">Add LSlide</button>
@@ -85,7 +85,7 @@
                                 </div>
                             </td>
                             <!-- Form d'ajout -->
-                            <td class="options-td">
+                            <td class="options-td resp-column">
                                 <div class="form-add-SLide">
                                     <label for="add_number">Number of featured posts.</label>
                                     <select class="" name="add_number">
@@ -96,7 +96,7 @@
                                     </select>
                                 </div>
                             </td>
-                            <td class=".submit-td">
+                            <td class="submit-td resp-column">
                                 <div class="form-add-SLide">
                                     <button type="submit" class="btn btn-submit" name="buttonSubmit" value="add">Add</button>
                                     <button type="button" class="btn btn-cancel" name="buttonCancel">Cancel</button>

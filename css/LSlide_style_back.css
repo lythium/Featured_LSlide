@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+@media all and (max-width:768px) {
+    .resp-column {
+        padding-left: 10px!important;
+    }
+}
 .LSlide-display-backoff .manage-column {
 	width: 25%;
 }
