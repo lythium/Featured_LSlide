@@ -3,10 +3,10 @@
 .LSlide-display-backoff .manage-column {
 	width: 25%;
 }
-.LSlide-display-backoff .btn_lslide_add {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+.LSlide-display-backoff .check-column span {
+    height: 25px;
+    width: 25px;
+    margin: 0 0 8px 8px;
 }
 .LSlide-display-backoff .form-add-SLide {
 	display: none

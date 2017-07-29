@@ -23,6 +23,25 @@ class Initialise_LSlide
 
     public function save_settings()
     {
+        global $wpdb;
+        if (isset($_POST['buttonSubmit']) && !empty($_POST['buttonSubmit'])) {
+            if ($_POST['buttonSubmit'] === "add") {
+                if (isset($_POST['add_name']) && !empty($_POST['add_name'])) {
+                    $LSlide_name = $_POST['add_name'];
+                    $LSlide_Settings = $_POST['add_number'];
+                    $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}LSlide_Config WHERE LSlide_Name = '$LSlide_name'");
+                    if (is_null($row)) {
+                        $wpdb->insert(
+                            "{$wpdb->prefix}LSlide_Config",
+                            array(
+                                'LSlide_Name' => $LSlide_name,
+                                'LSlide_Settings' => $LSlide_Settings,
+                            )
+                        );
+                    };
+                };
+            };
+        };
 
 	}
 }
