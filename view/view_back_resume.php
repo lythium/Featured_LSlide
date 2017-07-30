@@ -1,6 +1,7 @@
 <div id="acf-field-group-wrap" class="wrap LSlide-display-backoff">
     <div class="acf-columns-2">
         <h1 class="wp-heading-inline"><?= get_admin_page_title() ?></h1>
+        <?php include_once plugin_dir_path(__FILE__).'view_back_off_alert.php'; ?>
         <p>Bienvenue sur la page d'accueil du plugin</p>
         <table class="wp-list-table widefat fixed striped pages">
             <thead>
@@ -21,7 +22,7 @@
                         $ID = $key->LSlide_id;
                         $Name = $key->LSlide_Name;
                         $url_update =  "admin.php?page=LSlide&select=".$ID;
-                        $url_delete = "admin.php?page=LSlide&delete=".$ID;
+                        $url_delete = "admin.php?page=LSlide&action=delete&deleteLSlide=".$ID;
                         $settings = $key->LSlide_Settings;
                         $select_id = "cb-select-" . $ID;
             ?>
@@ -44,14 +45,14 @@
                                     <div class="row-actions hide-update" style="left:0;">
                                         <span class="edit inline">
                                             <!-- Update -->
-                                            <input type="hidden" name="select_id" value="<?= $ID ?>">
+                                            <input type="hidden" name="select_id_" value="<?= $ID ?>">
                                             <a class="btn-update" href="<?= admin_url($url_update) ?>" >modifier</a>
                                         </span>
                                         <span class="inline"> | </span>
                                         <span class="trash inline">
                                             <!-- Delete -->
-                                            <input type="hidden" name="delete" value="<?= $ID ?>">
-                                            <a href="<?= admin_url($url_delete) ?>">Supprimer</a>
+                                                <input type="hidden" name="select_delete" value="<?= $ID ?>">
+                                                <a href="<?= admin_url($url_delete) ?>">Supprimer</a>
                                         </span>
                                     </div>
                                     <button type="button" class="toggle-row">
@@ -94,9 +95,9 @@
                                     <label for="add_number">Number of featured posts.</label>
                                     <select class="" name="add_number">
                                         <option value="2" selected>2</option>
-                                        <option value="2">3</option>
-                                        <option value="2">4</option>
-                                        <option value="2">6</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="6">6</option>
                                     </select>
                                 </div>
                             </td>
@@ -111,5 +112,6 @@
             </tbody>
         </table>
         <pre><?php var_dump($_POST); ?></pre>
+        <pre><?php var_dump($_GET); ?></pre>
     </div>
 </div>
