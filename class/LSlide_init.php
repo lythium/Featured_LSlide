@@ -38,10 +38,24 @@ class Initialise_LSlide
                                 'LSlide_Settings' => $LSlide_Settings,
                             )
                         );
+                        wp_redirect( admin_url('admin.php?page=LSlide&success=2') );
                     };
                 };
             };
+        } elseif (isset($_GET['action']) && $_GET['action'] === "delete") {
+            if (isset($_GET['deleteLSlide']) && !empty($_GET['deleteLSlide'])) {
+                global $wpdb;
+                $delete_ID = $_GET['deleteLSlide'];
+                $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}LSlide_Config WHERE LSlide_id = '$delete_ID'");
+                if (!is_null($row)) {
+                    $wpdb->delete(
+                        "{$wpdb->prefix}LSlide_Config",
+                        array("LSlide_id" => $delete_ID
+                        )
+                    );
+                    wp_redirect( admin_url('admin.php?page=LSlide&success=1') );
+                };
+            };
         };
-
 	}
-}
+};
