@@ -51,8 +51,8 @@
                                         <span class="inline"> | </span>
                                         <span class="trash inline">
                                             <!-- Delete -->
-                                                <input type="hidden" name="select_delete" value="<?= $ID ?>">
-                                                <a href="<?= admin_url($url_delete) ?>">Supprimer</a>
+                                            <input type="hidden" name="select_delete" value="<?= $ID ?>">
+                                            <a href="<?= admin_url($url_delete) ?>">Supprimer</a>
                                         </span>
                                     </div>
                                     <button type="button" class="toggle-row">
