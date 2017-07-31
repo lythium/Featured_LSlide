@@ -42,18 +42,18 @@
                                     <strong class="hide-update_<?= $ID ?>"><a class="row-title" href=""><?= $Name ?></a></strong>
                                     <input class="show-update_<?= $ID ?>" name="update_name" value="<?= $Name ?>"> <!-- Name update-->
                                     <!-- Actions -->
-                                    <div class="row-actions hide-update_<?= $ID ?>" style="left:0;">
-                                        <span class="edit inline">
-                                            <!-- Update -->
-                                            <input type="hidden" name="select_id_" value="<?= $ID ?>">
-                                            <a id="update-LSlide_<?= $ID ?>"class="btn-update" href="" >Modifier</a>
-                                        </span>
-                                        <span class="inline"> | </span>
-                                        <span class="trash inline">
-                                            <!-- Delete -->
-                                            <input type="hidden" name="select_delete" value="<?= $ID ?>">
-                                            <a href="<?= admin_url($url_delete) ?>">Supprimer</a>
-                                        </span>
+                                    <div class="hide-update_<?= $ID ?>">
+                                        <div class="row-actions hide-update_<?= $ID ?>" style="left:0;">
+                                            <span class="edit inline">
+                                                <!-- Update -->
+                                                <a id="btn-update_<?= $ID ?>" class="btn-update" href="" >Modifier</a>
+                                            </span>
+                                            <span class="inline"> | </span>
+                                            <span class="trash inline">
+                                                <!-- Delete -->
+                                                <a href="<?= admin_url($url_delete) ?>">Supprimer</a>
+                                            </span>
+                                        </div>
                                     </div>
                                     <button type="button" class="toggle-row">
                                         <span class="screen-reader-text">Afficher plus de détails</span>
@@ -65,23 +65,23 @@
                                         <strong>Number featured Post: <?= $settings ?></strong>
                                     </span>
                                     <div class="show-update_<?= $ID ?>"> <!-- Settings update-->
-                                        <label for="add_number">Number of featured posts.</label>
-                                        <select class="" name="add_number">
-                                            <option value="2" selected>2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="6">6</option>
+                                        <label for="update_number">Number of featured posts.</label>
+                                        <select class="" name="update_number">
+                                            <option value="2" <?= selected( $settings, 2 ) ?> >2</option>
+                                            <option value="3" <?= selected( $settings, 3 ) ?> >3</option>
+                                            <option value="4" <?= selected( $settings, 4 ) ?> >4</option>
+                                            <option value="6" <?= selected( $settings, 6 ) ?> >6</option>
                                         </select>
                                     </div>
                                 </td>
                                 <!-- Shortcode -->
                                 <td class="shortcode column-shortcode" data-colname="Shortcode">
-                                    <span class="hide-update">
+                                    <span class="hide-update_<?= $ID ?>">
                                         <strong>[LSlide id=<?= $ID ?>]</strong>
                                     </span>
-                                    <div class="show-update"> <!-- Button update-->
-                                        <button type="button" class="btn btn-submit" name="buttonUpdate" value="update">Update</button>
-                                        <button type="button" class="btn btn-cancel" name="buttonCancel">Cancel</button>
+                                    <div class="show-update_<?= $ID ?>"> <!-- Button update-->
+                                        <button type="submit" class="btn btn-submit" name="buttonUpdate" value="update">Update</button>
+                                        <button id="btn-cancel-update_<?= $ID ?>"type="button" class="btn btn-cancel" name="buttonCancel">Cancel</button>
                                     </div>
                                 </td>
                             </form>
