@@ -27,7 +27,7 @@
                         $select_id = "cb-select-" . $ID;
             ?>
                         <tr class="iedit level-0 type-page status-publish hentry">
-                            <form class="update_LSlide" action="<?= admin_url('admin.php?page=LSlide') ?>" method="post">
+                            <form class="update_LSlide_<?= $ID ?>" action="<?= admin_url('admin.php?page=LSlide') ?>" method="post">
                                 <!-- ID -->
                                 <th class="id-column check-column column">
                                     <strong class="hide-update"><span><?= $ID ?></span></strong>
@@ -39,14 +39,14 @@
                                         <span class="locked-avatar"></span>
                                         <span class="locked-text"></span>
                                     </div>
-                                    <strong class="hide-update"><a class="row-title" href=""><?= $Name ?></a></strong>
-                                    <input class="show-update" type="hidden" name="update_name" value="<?= $Name ?>">
+                                    <strong class="hide-update_<?= $ID ?>"><a class="row-title" href=""><?= $Name ?></a></strong>
+                                    <input class="show-update_<?= $ID ?>" name="update_name" value="<?= $Name ?>"> <!-- Name update-->
                                     <!-- Actions -->
-                                    <div class="row-actions hide-update" style="left:0;">
+                                    <div class="row-actions hide-update_<?= $ID ?>" style="left:0;">
                                         <span class="edit inline">
                                             <!-- Update -->
                                             <input type="hidden" name="select_id_" value="<?= $ID ?>">
-                                            <a class="btn-update" href="<?= admin_url($url_update) ?>" >modifier</a>
+                                            <a id="update-LSlide_<?= $ID ?>"class="btn-update" href="" >Modifier</a>
                                         </span>
                                         <span class="inline"> | </span>
                                         <span class="trash inline">
@@ -61,13 +61,28 @@
                                 </td>
                                 <!-- Settings -->
                                 <td class="settings column-settings" data-colname="Settings">
-                                    <span><strong>Number featured Post: <?= $settings ?></strong></span>
+                                    <span class="hide-update_<?= $ID ?>">
+                                        <strong>Number featured Post: <?= $settings ?></strong>
+                                    </span>
+                                    <div class="show-update_<?= $ID ?>"> <!-- Settings update-->
+                                        <label for="add_number">Number of featured posts.</label>
+                                        <select class="" name="add_number">
+                                            <option value="2" selected>2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="6">6</option>
+                                        </select>
+                                    </div>
                                 </td>
                                 <!-- Shortcode -->
                                 <td class="shortcode column-shortcode" data-colname="Shortcode">
-                                    <span>
+                                    <span class="hide-update">
                                         <strong>[LSlide id=<?= $ID ?>]</strong>
                                     </span>
+                                    <div class="show-update"> <!-- Button update-->
+                                        <button type="button" class="btn btn-submit" name="buttonUpdate" value="update">Update</button>
+                                        <button type="button" class="btn btn-cancel" name="buttonCancel">Cancel</button>
+                                    </div>
                                 </td>
                             </form>
                         </tr>
