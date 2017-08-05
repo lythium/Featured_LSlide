@@ -5,17 +5,43 @@ $args = array( 	'numberposts' => $settings_LSlide,
 'order' => 'ASC' );
 $recent_posts = wp_get_recent_posts( $args );
 $count = 0;
+?>
 
+<?php
+    function substrwords($text, $maxchar, $end='...')
+    {
+        // Cut string function
+        if (strlen($text) > $maxchar || $text == '') {
+            $words = preg_split('/\s/', $text);
+            $output = '';
+            $i      = 0;
+            while (1) {
+                $length = strlen($output)+strlen($words[$i]);
+                if ($length > $maxchar) {
+                    break;
+                } else {
+                    $output .= " " . $words[$i];
+                    ++$i;
+                }
+            }
+            $output .= $end;
+        } else {
+            $output = $text;
+        }
+        return $output;
+    }
  ?>
+
 <div class="row sliderApo">
 	<div class="container-slideApo">
 		<ul class="list-slideApo">
 		<?php foreach ( $recent_posts as $post ): ?>
             <?php $imagePost = get_the_post_thumbnail($post["ID"], array(150, 150), array( 'class' => 'col-md-12 col-centered' ) ); ?>
             <?php if (empty($imagePost)):
-                $imagePost = '/default.jpg';
+                $imagePost = plugins_url('default.jpg', __FILE__);
             endif; ?>
             <?php $titlePost = $post["post_title"]; ?>
+            <?php $cutTitle = substrwords($titlePost, 20); ?>
             <?php $hrefPost = get_permalink($post["ID"]); ?>
 			<?php $first = ''; ?>
 			<?php if ($post === reset($recent_posts)): ?>
@@ -25,17 +51,17 @@ $count = 0;
 				<li class="list-item-sliderApo <?php echo 'list'.$count.' '.$first?>">
 			<?php endif; ?>
 					<div class="content-item">
-						<h3>
-                            <a href="<?= $hrefPost ?>"> <?= $titlePost ?> </a>
-                        </h3>
+						<h2 class="item-title">
+                            <a title="<?= $titlePost ?>" href="<?= $hrefPost ?>"> <?= $titlePost ?> </a>
+                        </h2>
 						<div class="item-list item-image1 animated flipInX">
-							<img src="<?= $imagePost ?>" >
+							<img title="<?= $titlePost ?>" src="<?= $imagePost ?>" >
 						</div>
 						<div class="item-list item-image2 animated flipInY">
-							<img src="<?= $imagePost ?>" >
+							<img title="<?= $titlePost ?>" src="<?= $imagePost ?>" >
 						</div>
 						<div class="item-list item-image3 animated flipInX">
-							<img src="<?= $imagePost ?>" >
+							<img title="<?= $titlePost ?>" src="<?= $imagePost ?>" >
 						</div>
 					</div>
 			<?php if ($count === 2 || $post === end($recent_posts)):?>
