@@ -7,31 +7,6 @@ $recent_posts = wp_get_recent_posts( $args );
 $count = 0;
 ?>
 
-<?php
-    function substrwords($text, $maxchar, $end='...')
-    {
-        // Cut string function
-        if (strlen($text) > $maxchar || $text == '') {
-            $words = preg_split('/\s/', $text);
-            $output = '';
-            $i      = 0;
-            while (1) {
-                $length = strlen($output)+strlen($words[$i]);
-                if ($length > $maxchar) {
-                    break;
-                } else {
-                    $output .= " " . $words[$i];
-                    ++$i;
-                }
-            }
-            $output .= $end;
-        } else {
-            $output = $text;
-        }
-        return $output;
-    }
- ?>
-
 <div class="row sliderApo">
 	<div class="container-slideApo">
 		<ul class="list-slideApo">
@@ -41,7 +16,7 @@ $count = 0;
                 $imagePost = plugins_url('default.jpg', __FILE__);
             endif; ?>
             <?php $titlePost = $post["post_title"]; ?>
-            <?php $cutTitle = substrwords($titlePost, 20); ?>
+            <?php $cutTitle = Core_LSlide::substrwords($titlePost, 10); ?>
             <?php $hrefPost = get_permalink($post["ID"]); ?>
 			<?php $first = ''; ?>
 			<?php if ($post === reset($recent_posts)): ?>
@@ -52,7 +27,7 @@ $count = 0;
 			<?php endif; ?>
 					<div class="content-item">
 						<h2 class="item-title">
-                            <a title="<?= $titlePost ?>" href="<?= $hrefPost ?>"> <?= $titlePost ?> </a>
+                            <a title="<?= $titlePost ?>" href="<?= $hrefPost ?>"> <?= $cutTitle ?> </a>
                         </h2>
 						<div class="item-list item-image1 animated flipInX">
 							<img title="<?= $titlePost ?>" src="<?= $imagePost ?>" >
