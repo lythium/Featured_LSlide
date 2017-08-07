@@ -49,7 +49,7 @@ class LSlide_Plugin
 
     public static function enqueue_LSlide_scripts()
     {
-        $js_file = plugins_url('js/LSlide_slider_script.min.js', __FILE__);
+        $js_file = plugins_url('js/LSlide_slider_script.js', __FILE__);
         wp_enqueue_script('LSlide_script', $js_file, array('jquery'), false, "0.1");
     }
 

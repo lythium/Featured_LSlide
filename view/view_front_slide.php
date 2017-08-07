@@ -5,6 +5,7 @@ $args = array( 	'numberposts' => $settings_LSlide,
 'order' => 'ASC' );
 $recent_posts = wp_get_recent_posts( $args );
 $count = 0;
+$numlist = 0;
 ?>
 
 <div class="row sliderApo">
@@ -23,7 +24,7 @@ $count = 0;
 				<?php $first = "current"; ?>
 			<?php endif; ?>
 			<?php if ($count === 0):?>
-				<li class="list-item-sliderApo <?php echo 'list'.$count.' '.$first?>">
+				<li class="list-item-sliderApo <?php echo 'list'.$numlist.' '.$first?>">
 			<?php endif; ?>
 					<div class="content-item">
 						<h2 class="item-title">
@@ -44,6 +45,7 @@ $count = 0;
 			<?php if ($count === 2 || $post === end($recent_posts)):?>
 				</li>
 				<?php $count = 0; ?>
+                <?php $numlist++; ?>
 			<?php else: ?>
 				<?php $count++; ?>
 			<?php endif; ?>
