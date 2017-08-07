@@ -9,17 +9,28 @@ $(document).ready(function(){
     $item3 = $Lists.find(".item-image3"),
     $itemAmt = $Lists.length;
 
-    $Click.click(function() {
+    $Click.click(function(e) {
+        e.stopPropagation();
         switchInterv($itemAmt);
     });
-    // setInterval(function() {
-    //     switchInterv($itemAmt);
-    // }, 7000);
+    setInterval(function() {
+        switchInterv($itemAmt);
+    }, 7000);
+    $(".content-item-list").hover(function(e){
+        e.stopPropagation();
+        $(this).parent().children("h2").slideDown(500);
+    }, function(e) {
+        e.stopPropagation();
+        $(this).parent().children("h2").slideUp(500);
+    });
 
     function Anim(currentIndex) {
         var $List = $('.list-item-sliderApo').eq(currentIndex);
+        console.log(currentIndex);
         AnimOut($Lists);
-        AnimIn($List);
+        setTimeout(function(){
+            AnimIn($List);
+        }, 1500)
     };
     function goQueue() {
         $List.queue(function(){
@@ -27,24 +38,22 @@ $(document).ready(function(){
     };
 
     function AnimOut($Lists) {
-        $Lists.find("h2").fadeOut(500);
-        $Lists.find(".item-image1").toggleClass("flipInX").toggleClass("flipOutX").fadeOut(1000);
-        $Lists.find(".item-image2").toggleClass("flipInY").toggleClass("flipOutY").fadeOut(1000);
-        $Lists.find(".item-image3").toggleClass("flipInX").toggleClass("flipOutX").fadeOut(1000);
+        // $Lists.find(".item-image1").toggleClass("flipInX").toggleClass("flipOutX").fadeOut(1000);
+        $Lists.find(".item-image1").toggleClass("flipInX flipOutX").delay(500).fadeOut(800);
+        $Lists.find(".item-image2").toggleClass("flipInY flipOutY").delay(500).fadeOut(800);
+        $Lists.find(".item-image3").toggleClass("flipInX flipOutX").delay(500).fadeOut(800);
         setTimeout(function(){
-            $Lists.css("display", "none").removeClass("current");
-        }, 1500)
+            $Lists.removeClass("current").dequeue();
+        }, 1000);
+
     };
     function AnimIn($List) {
-        setTimeout(function(){
-            $List.css("display", "flex").addClass("current");
-            $List.find(".item-image1").toggleClass("flipOutX").toggleClass("flipInX").fadeOut(1000);
-            $List.find(".item-image2").toggleClass("flipOutY").toggleClass("flipInY").fadeOut(1000);
-            $List.find(".item-image3").toggleClass("flipOutX").toggleClass("flipInX").fadeOut(1000);
-            setTimeout(function(){
-                $List.find("h2").fadeIn(500);
-            }, 500)
-        }, 1500)
+        $List.queue(function(){
+            $List.addClass("current").dequeue();
+        });
+        $List.find(".item-image1").toggleClass("flipOutX flipInX").delay(500).fadeIn(500);
+        $List.find(".item-image2").toggleClass("flipOutY flipInY").delay(500).fadeIn(500);
+        $List.find(".item-image3").toggleClass("flipOutX flipInX").delay(500).fadeIn(500);
     };
     function switchInterv($itemAmt) {
         currentIndex += 1;

@@ -29,15 +29,17 @@ $count = 0;
 						<h2 class="item-title">
                             <a title="<?= $titlePost ?>" href="<?= $hrefPost ?>"> <?= $cutTitle ?> </a>
                         </h2>
-						<div class="item-list item-image1 animated flipInX">
-							<img title="<?= $titlePost ?>" src="<?= $imagePost ?>" >
-						</div>
-						<div class="item-list item-image2 animated flipInY">
-							<img title="<?= $titlePost ?>" src="<?= $imagePost ?>" >
-						</div>
-						<div class="item-list item-image3 animated flipInX">
-							<img title="<?= $titlePost ?>" src="<?= $imagePost ?>" >
-						</div>
+                        <div class="content-item-list">
+    						<div class="item-list item-image1 animated flipInX">
+    							<img title="<?= $titlePost ?>" src="<?= $imagePost ?>" >
+    						</div>
+    						<div class="item-list item-image2 animated flipInY">
+    							<img title="<?= $titlePost ?>" src="<?= $imagePost ?>" >
+    						</div>
+    						<div class="item-list item-image3 animated flipInX">
+    							<img title="<?= $titlePost ?>" src="<?= $imagePost ?>" >
+    						</div>
+                        </div>
 					</div>
 			<?php if ($count === 2 || $post === end($recent_posts)):?>
 				</li>
