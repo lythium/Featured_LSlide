@@ -49,6 +49,20 @@ $(document).ready(function(){
         console.log($itemAmt);
         Anim(currentIndex);
     };
+    function nextSwitch() {
+        currentIndex += 1;
+        if (currentIndex > $itemAmt - 1) {
+            currentIndex = 0;
+        }
+        Anim(currentIndex);
+    }
+    function prevSwitch() {
+        currentIndex -= 1;
+        if (currentIndex < 0) {
+            currentIndex = $itemAmt - 1;
+        }
+        Anim(currentIndex);
+    }
 
     function Anim(currentIndex) {
         console.log(currentIndex);

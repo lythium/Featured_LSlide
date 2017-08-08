@@ -135,6 +135,19 @@
     text-decoration: none;
     font-size: 24px;
 }
+.arrowAction {
+     position:  absolute;
+}
+.arrow-right {
+     width: 20px;
+     height: 198px;
+     background-color: rgba(0, 0, 0, 0.5);
+}
+.arrow-left {
+    width: 20px;
+    height: 198px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 /*Animation*/
 .animated {
     animation-duration: 1s;

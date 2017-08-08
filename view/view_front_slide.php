@@ -41,6 +41,14 @@
 			<?php endif; ?>
 		<?php endforeach; ?>
 		</ul>
+        <div class="arrowAction">
+            <span class="arrow-right">
+
+            </span>
+            <span class="arrow-left">
+                
+            </span>
+        </div>
 	</div>
 	<div class="btn">
 		<button type="button" name="button">Test</button>
