@@ -67,10 +67,10 @@
                                     <div class="show-update_<?= $ID ?>"> <!-- Settings update-->
                                         <label for="update_number">Number of featured posts.</label>
                                         <select class="" name="update_number">
-                                            <option value="2" <?= selected( $settings, 2 ) ?> >2</option>
                                             <option value="3" <?= selected( $settings, 3 ) ?> >3</option>
                                             <option value="4" <?= selected( $settings, 4 ) ?> >4</option>
                                             <option value="6" <?= selected( $settings, 6 ) ?> >6</option>
+                                            <option value="8" <?= selected( $settings, 8 ) ?> >8</option>
                                         </select>
                                     </div>
                                 </td>
@@ -109,10 +109,10 @@
                                 <div class="form-add-SLide">
                                     <label for="add_number">Number of featured posts.</label>
                                     <select class="" name="add_number">
-                                        <option value="2" selected>2</option>
-                                        <option value="3">3</option>
+                                        <option value="3" selected>3</option>
                                         <option value="4">4</option>
                                         <option value="6">6</option>
+                                        <option value="8">8</option>
                                     </select>
                                 </div>
                             </td>
@@ -126,7 +126,5 @@
 					</tr>
             </tbody>
         </table>
-        <pre><?php var_dump($_POST); ?></pre>
-        <pre><?php var_dump($_GET); ?></pre>
     </div>
 </div>

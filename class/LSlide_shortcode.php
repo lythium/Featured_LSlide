@@ -22,6 +22,19 @@ class Shortcode_LSlide
             foreach ($results as $key) {
                 $name_LSlide = $key->LSlide_Name;
                 $settings_LSlide = $key->LSlide_Settings;
+                $args = array( 	'numberposts' => $settings_LSlide,
+                'orderby' => 'post_date',
+                'post_status' => 'publish',
+                'order' => 'ASC' );
+                $recent_posts = wp_get_recent_posts( $args );
+                $count = 0;
+                if ($settings_LSlide == 4 || $settings_LSlide == 8) {
+                    $maxcount = 1;
+                } elseif ($settings_LSlide == 3 || $settings_LSlide == 6){
+                    $maxcount = 2;
+                };
+                $numlist = 0;
+
                 ob_start();
                 include_once plugin_dir_path(__FILE__).'../view/view_front_slide.php';
                 return ob_get_clean();
