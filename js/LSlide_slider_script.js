@@ -3,6 +3,7 @@ $(document).ready(function(){
     var $Click = $(".btn button");
 
     var currentIndex = 0,
+    $mainList = $('.list-slideApo'),
     $Lists = $('.list-item-sliderApo'),
     $itemAmt = $Lists.length;
 
@@ -20,7 +21,7 @@ $(document).ready(function(){
 
     $Click.click(function(e) {
         e.stopPropagation();
-
+        $current = $mainList.find(".current");
         switchInterv($itemAmt);
     });
 
@@ -38,44 +39,44 @@ $(document).ready(function(){
         var $List = $Lists.eq(currentIndex);
         console.log($List);
         console.log($Lists);
-        fixAnimOut($Lists);
+        fixAnimOut($current);
         setTimeout(function(){
-            AnimOut($Lists);
+            AnimOut($current);
             setTimeout(function(){
                 fixAnimIn($List);
                 setTimeout(function(){
                     AnimIn($List);
-                }, 2000);
+                }, 250);
             }, 1000);
-        }, 500);
+        }, 250);
     };
 
-    function fixAnimOut($Lists) {
-        $Lists.find(".item-image1").toggleClass("flipInX flipOutX");
-        $Lists.find(".item-image2").toggleClass("flipInY flipOutY");
-        $Lists.find(".item-image3").toggleClass("flipInX flipOutX");
+    function fixAnimOut($current) {
+        $current.find(".item-image1").removeClass("flipInX").addClass("flipOutX");
+        $current.find(".item-image2").removeClass("flipInY").addClass("flipOutY");
+        $current.find(".item-image3").removeClass("flipInX").addClass("flipOutX");
     };
-    function AnimOut($Lists) {
-        // $Lists.find(".item-image1").toggleClass("flipInX").toggleClass("flipOutX").fadeOut(1000);
-        $Lists.find(".item-image1").fadeOut(1000);
-        $Lists.find(".item-image2").fadeOut(1000);
-        $Lists.find(".item-image3").fadeOut(1000);
+    function AnimOut($current) {
+        // $current.find(".item-image1").toggleClass("flipInX").toggleClass("flipOutX").fadeOut(1000);
+        $current.find(".item-image1").fadeOut(1000);
+        $current.find(".item-image2").fadeOut(1000);
+        $current.find(".item-image3").fadeOut(1000);
         setTimeout(function(){
-            $Lists.removeClass("current");
-        }, 1000);
+            $current.removeClass("current").hide(0);
+        }, 1100);
     };
 
     function fixAnimIn($List) {
-        $List.find(".item-image1").toggleClass("flipOutX flipInX");
-        $List.find(".item-image2").toggleClass("flipOutY flipInY");
-        $List.find(".item-image3").toggleClass("flipOutX flipInX");
+        $List.find(".item-image1").removeClass("flipOutX").addClass("flipInX");
+        $List.find(".item-image2").removeClass("flipOutY").addClass("flipInY");
+        $List.find(".item-image3").removeClass("flipOutX").addClass("flipInX");
     };
 
     function AnimIn($List) {
-        $List.addClass("current");
-        $List.find(".item-image1").fadeIn(1000);
-        $List.find(".item-image2").fadeIn(1000);
-        $List.find(".item-image3").fadeIn(1000);
+        $List.addClass("current").show(0);
+        $List.find(".item-image1").fadeIn(500);
+        $List.find(".item-image2").fadeIn(500);
+        $List.find(".item-image3").fadeIn(500);
     };
 
 });
