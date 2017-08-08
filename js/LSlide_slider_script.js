@@ -7,17 +7,33 @@ $(document).ready(function(){
     $Lists = $('.list-item-sliderApo'),
     $itemAmt = $Lists.length;
 
-    $(".content-item-list").hover(function(e){
+    $(".content-item").hover(function(e){
         e.stopPropagation();
-        $(this).parent().children("h2").slideDown(500);
+        $(this).children("h2").slideDown(500);
     }, function(e) {
         e.stopPropagation();
-        $(this).parent().children("h2").slideUp(500);
+        $(this).children("h2").slideUp(500);
     });
 
-    // setInterval(function() {
-    //     switchInterv($itemAmt);
-    // }, 7000);
+    function autoInterv() {
+        interval = setInterval(function() {
+            $current = $mainList.find(".current");
+            switchInterv($itemAmt);
+        }, 7000);
+    };
+    function stopAutoInterv() {
+        clearInterval(interval);
+    };
+    $(function () {
+        autoInterv();
+        $mainList.hover(function() {
+            console.log("stop");
+            stopAutoInterv();
+        }, function() {
+            console.log("reprise");
+            autoInterv();
+        })
+    });
 
     $Click.click(function(e) {
         e.stopPropagation();

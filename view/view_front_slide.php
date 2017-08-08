@@ -1,13 +1,3 @@
-<?php
-$args = array( 	'numberposts' => $settings_LSlide,
-'orderby' => 'post_date',
-'post_status' => 'publish',
-'order' => 'ASC' );
-$recent_posts = wp_get_recent_posts( $args );
-$count = 0;
-$numlist = 0;
-?>
-
 <div class="row sliderApo">
 	<div class="container-slideApo">
 		<ul class="list-slideApo">
@@ -42,7 +32,7 @@ $numlist = 0;
     						</div>
                         </div>
 					</div>
-			<?php if ($count === 2 || $post === end($recent_posts)):?>
+			<?php if ($count === $maxcount || $post === end($recent_posts)):?>
 				</li>
 				<?php $count = 0; ?>
                 <?php $numlist++; ?>
