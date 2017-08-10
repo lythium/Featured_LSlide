@@ -50,7 +50,4 @@
             </span>
         </div>
 	</div>
-	<div class="btn">
-		<button type="button" name="button">Test</button>
-	</div>
 </div>

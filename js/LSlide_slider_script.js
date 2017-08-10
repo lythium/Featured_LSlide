@@ -1,7 +1,6 @@
 $=jQuery.noConflict();
 $(document).ready(function(){
-    var $Click = $(".btn button");
-        $clickLeft = $(".arrow-left"),
+    var $clickLeft = $(".arrow-left"),
         $clickRight = $(".arrow-right"),
         currentIndex = 0,
         $mainList = $('.list-slideApo'),
@@ -29,17 +28,10 @@ $(document).ready(function(){
     $(function () {
         autoInterv();
         $multi.hover(function() {
-            console.log("stop");
             stopAutoInterv();
         }, function() {
             autoInterv();
         })
-    });
-
-    $Click.click(function(e) {
-        e.stopPropagation();
-        $current = $mainList.find(".current");
-        switchInterv();
     });
 
     $clickLeft.click(function(e){
@@ -58,7 +50,6 @@ $(document).ready(function(){
         if (currentIndex > $itemAmt - 1) {
             currentIndex = 0;
         }
-        console.log($itemAmt);
         Anim(currentIndex);
     };
     function nextSwitch() {
@@ -77,10 +68,7 @@ $(document).ready(function(){
     }
 
     function Anim(currentIndex) {
-        console.log(currentIndex);
         var $List = $Lists.eq(currentIndex);
-        console.log($List);
-        console.log($Lists);
         fixAnimOut($current);
         setTimeout(function(){
             AnimOut($current);

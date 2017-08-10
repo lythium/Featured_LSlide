@@ -80,6 +80,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: none!important;
 }
 .content-item-list .item-list {
     overflow: hidden;
@@ -103,38 +104,6 @@
 .content-item-list .item-image3 img {
     bottom: 0;
     left: 0;
-}
-.btn {
-    margin-top: 20px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    width: 100%;
-}
-.btn button {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 200px;
-    height: 40px;
-    text-align: center;
-    border: 2px outset #555;
-    border-radius: 5px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    text-decoration: none;
-    font-size: 24px;
 }
 .arrowAction {
     position:  absolute;
