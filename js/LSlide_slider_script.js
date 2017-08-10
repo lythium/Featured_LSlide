@@ -1,11 +1,13 @@
 $=jQuery.noConflict();
 $(document).ready(function(){
     var $Click = $(".btn button");
-
-    var currentIndex = 0,
-    $mainList = $('.list-slideApo'),
-    $Lists = $('.list-item-sliderApo'),
-    $itemAmt = $Lists.length;
+        $clickLeft = $(".arrow-left"),
+        $clickRight = $(".arrow-right"),
+        currentIndex = 0,
+        $mainList = $('.list-slideApo'),
+        $multi = $(".list-slideApo, .arrow-slide"),
+        $Lists = $('.list-item-sliderApo'),
+        $itemAmt = $Lists.length;
 
     $(".content-item").hover(function(e){
         e.stopPropagation();
@@ -26,11 +28,10 @@ $(document).ready(function(){
     };
     $(function () {
         autoInterv();
-        $mainList.hover(function() {
+        $multi.hover(function() {
             console.log("stop");
             stopAutoInterv();
         }, function() {
-            console.log("reprise");
             autoInterv();
         })
     });
@@ -38,10 +39,21 @@ $(document).ready(function(){
     $Click.click(function(e) {
         e.stopPropagation();
         $current = $mainList.find(".current");
-        switchInterv($itemAmt);
+        switchInterv();
     });
 
-    function switchInterv($itemAmt) {
+    $clickLeft.click(function(e){
+        e.stopPropagation();
+        $current = $mainList.find(".current");
+        prevSwitch();
+    })
+    $clickRight.click(function(e){
+        e.stopPropagation();
+        $current = $mainList.find(".current");
+        nextSwitch();
+    })
+
+    function switchInterv() {
         currentIndex += 1;
         if (currentIndex > $itemAmt - 1) {
             currentIndex = 0;

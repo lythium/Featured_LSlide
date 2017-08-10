@@ -7,6 +7,7 @@
     overflow: hidden;
 }
 .container-slideApo {
+    position: relative;
     width: 100%;
     height: 200px;
     display: -webkit-box;
@@ -136,17 +137,29 @@
     font-size: 24px;
 }
 .arrowAction {
-     position:  absolute;
+    position:  absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    pointer-events: none;
 }
-.arrow-right {
-     width: 20px;
-     height: 198px;
-     background-color: rgba(0, 0, 0, 0.5);
-}
-.arrow-left {
+.arrow-slide {
     width: 20px;
     height: 198px;
     background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    flex: 0.05;
+    padding: 40px 10px;
+    box-sizing: border-box;
+    pointer-events: painted;
+}
+.arrow-slide:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 /*Animation*/
 .animated {

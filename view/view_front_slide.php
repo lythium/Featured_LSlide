@@ -20,7 +20,7 @@
 						<h2 class="item-title">
                             <a title="<?= $titlePost ?>" href="<?= $hrefPost ?>"> <?= $cutTitle ?> </a>
                         </h2>
-                        <div class="content-item-list">
+                        <a href="<?= $hrefPost ?>" class="content-item-list">
     						<div class="item-list item-image1 animated flipInX">
     							<img title="<?= $titlePost ?>" src="<?= $imagePost ?>" >
     						</div>
@@ -30,7 +30,7 @@
     						<div class="item-list item-image3 animated flipInX">
     							<img title="<?= $titlePost ?>" src="<?= $imagePost ?>" >
     						</div>
-                        </div>
+                        </a>
 					</div>
 			<?php if ($count === $maxcount || $post === end($recent_posts)):?>
 				</li>
@@ -42,11 +42,11 @@
 		<?php endforeach; ?>
 		</ul>
         <div class="arrowAction">
-            <span class="arrow-right">
-
+            <span class="arrow-slide arrow-left">
+                <img src="<?php echo plugins_url('img/arrowL.png', __FILE__); ?>" alt="">
             </span>
-            <span class="arrow-left">
-                
+            <span class="arrow-slide arrow-right">
+                <img src="<?php echo plugins_url('img/arrowR.png', __FILE__); ?>" alt="">
             </span>
         </div>
 	</div>
