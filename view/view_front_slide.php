@@ -1,4 +1,5 @@
 <div class="row sliderApo">
+    <input id="speed" type="hidden" name="setting_speed" value="<?= $setting_speed ?>">
 	<div class="container-slideApo">
 		<ul class="list-slideApo">
 		<?php foreach ( $recent_posts as $post ): ?>

@@ -21,6 +21,9 @@ class LSlide_Plugin
         include_once plugin_dir_path(__FILE__).'class/LSlide_shortcode.php';
         new Shortcode_LSlide();
 
+        include_once plugin_dir_path(__FILE__).'class/LSlide_core.php';
+        new Core_LSlide();
+
         add_action('wp_enqueue_scripts', array( __CLASS__, 'enqueue_LSlide_styles' ));
         add_action('wp_enqueue_scripts', array( __CLASS__, 'enqueue_LSlide_scripts' ));
 

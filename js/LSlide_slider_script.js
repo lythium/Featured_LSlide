@@ -1,11 +1,12 @@
 $=jQuery.noConflict();
 $(document).ready(function(){
-    var $clickLeft = $(".arrow-left"),
-        $clickRight = $(".arrow-right"),
+    var $speed = $(".sliderApo #speed").val();
+        $clickLeft = $(".sliderApo .arrow-left"),
+        $clickRight = $(".sliderApo .arrow-right"),
         currentIndex = 0,
-        $mainList = $('.list-slideApo'),
-        $multi = $(".list-slideApo, .arrow-slide"),
-        $Lists = $('.list-item-sliderApo'),
+        $mainList = $('.sliderApo .list-slideApo'),
+        $multi = $(" .sliderApo .list-slideApo, .sliderApo .arrow-slide"),
+        $Lists = $('.sliderApo .list-item-sliderApo'),
         $itemAmt = $Lists.length;
 
     $(".content-item").hover(function(e){
@@ -19,19 +20,30 @@ $(document).ready(function(){
     function autoInterv() {
         interval = setInterval(function() {
             $current = $mainList.find(".current");
-            switchInterv($itemAmt);
-        }, 7000);
+            switchInterv();
+            console.log($speed);
+        }, $speed);
     };
     function stopAutoInterv() {
         clearInterval(interval);
     };
     $(function () {
         autoInterv();
-        $multi.hover(function() {
+        $multi.hover(function(e) {
+            e.stopPropagation();
             stopAutoInterv();
-        }, function() {
+        }, function(e) {
+            e.stopPropagation();
             autoInterv();
         })
+    });
+    $(".sliderApo").hover(function(e) {
+        e.stopPropagation();
+        console.log("test");
+        $(".arrowAction").animate({opacity: 1.0}, 500);
+    }, function(e) {
+        e.stopPropagation();
+        $(".arrowAction").animate({opacity: 0}, 500);
     });
 
     $clickLeft.click(function(e){

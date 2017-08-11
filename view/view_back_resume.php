@@ -23,7 +23,9 @@
                         $Name = $key->LSlide_Name;
                         $url_update =  "admin.php?page=LSlide&select=".$ID;
                         $url_delete = "admin.php?page=LSlide&action=delete&deleteLSlide=".$ID;
-                        $settings = $key->LSlide_Settings;
+                        $settings = unserialize($key->LSlide_Settings);
+                        $setting_number = $settings["number"];
+                        $setting_speed = $settings["speed"];
                         $select_id = "cb-select-" . $ID;
             ?>
                         <tr class="iedit level-0 type-page status-publish hentry">
@@ -62,16 +64,19 @@
                                 <!-- Settings -->
                                 <td class="settings column-settings" data-colname="Settings">
                                     <span class="hide-update_<?= $ID ?>">
-                                        <strong>Number featured Post: <?= $settings ?></strong>
+                                        <strong>Number featured Post: <?= $setting_number ?></strong><br>
+                                        <strong>Speed: <?= $setting_speed ?> </strong>
                                     </span>
                                     <div class="show-update_<?= $ID ?>"> <!-- Settings update-->
-                                        <label for="update_number">Number of featured posts.</label>
+                                        <label for="update_number">Number of featured posts:</label>
                                         <select class="" name="update_number">
-                                            <option value="3" <?= selected( $settings, 3 ) ?> >3</option>
-                                            <option value="4" <?= selected( $settings, 4 ) ?> >4</option>
-                                            <option value="6" <?= selected( $settings, 6 ) ?> >6</option>
-                                            <option value="8" <?= selected( $settings, 8 ) ?> >8</option>
-                                        </select>
+                                            <option value="3" <?= selected( $setting_number, 3 ) ?> >3</option>
+                                            <option value="4" <?= selected( $setting_number, 4 ) ?> >4</option>
+                                            <option value="6" <?= selected( $setting_number, 6 ) ?> >6</option>
+                                            <option value="8" <?= selected( $setting_number, 8 ) ?> >8</option>
+                                        </select><br>
+                                        <label for="update_speed">Speed:</label>
+                                        <input type="text" name="update_speed" value="7000">
                                     </div>
                                 </td>
                                 <!-- Shortcode -->
@@ -113,7 +118,9 @@
                                         <option value="4">4</option>
                                         <option value="6">6</option>
                                         <option value="8">8</option>
-                                    </select>
+                                    </select><br>
+                                    <label for="add_speed">Speed:</label>
+                                    <input type="text" name="add_speed" value="7000">
                                 </div>
                             </td>
                             <td class="submit-td resp-column">

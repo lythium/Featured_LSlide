@@ -28,7 +28,13 @@ class Initialise_LSlide
             if ($_POST['buttonSubmit'] === "add") {
                 if (isset($_POST['add_name']) && !empty($_POST['add_name'])) {
                     $LSlide_name = $_POST['add_name'];
-                    $LSlide_Settings = $_POST['add_number'];
+                    $LSlide_Settings = serialize(
+                        array(
+                            'number' => $_POST['add_number'],
+                            'speed' => $_POST['add_speed']
+                        )
+                    );
+
                     $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}LSlide_Config WHERE LSlide_Name = '$LSlide_name'");
                     if (is_null($row)) {
                         $wpdb->insert(
@@ -51,19 +57,24 @@ class Initialise_LSlide
                 if (isset($_POST['update_name']) && !empty($_POST['update_name'])) {
                     global $swpdb;
                     $id_update = $_POST["update_id"];
-                    $name_update = $_POST['update_name'];
-                    $settings_update = $_POST['update_number'];
+                    $LSlide_name_update = $_POST['update_name'];
+                    $LSlide_Settings_update = serialize(
+                        array(
+                            'number' => $_POST['update_number'],
+                            'speed' => $_POST['update_speed']
+                        )
+                    );
                     $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}LSlide_Config WHERE LSlide_id = '$id_update'");
                     if (!is_null($row)) {
                        $wpdb->update(
                            "{$wpdb->prefix}LSlide_Config",
                            array(
-                               'LSlide_Name' => $name_update,
-                               'LSlide_Settings' => $settings_update,
+                               'LSlide_Name' => $LSlide_name_update,
+                               'LSlide_Settings' => $LSlide_Settings_update,
                            ),
                            array('LSlide_id' => $id_update),
-                           array( "%s", "%d"),
-                           array( "%d")
+                           array( "%s", "%s"),
+                           array( "%s")
                        );
                        wp_redirect( admin_url('admin.php?page=LSlide&success=2') );
                    } else {

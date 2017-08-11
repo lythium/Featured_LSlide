@@ -21,16 +21,18 @@ class Shortcode_LSlide
         if ($results) {
             foreach ($results as $key) {
                 $name_LSlide = $key->LSlide_Name;
-                $settings_LSlide = $key->LSlide_Settings;
-                $args = array( 	'numberposts' => $settings_LSlide,
+                $settings_LSlide = unserialize($key->LSlide_Settings);
+                $setting_number = $settings_LSlide["number"];
+                $setting_speed = $settings_LSlide["speed"];
+                $args = array( 	'numberposts' => $setting_number,
                 'orderby' => 'post_date',
                 'post_status' => 'publish',
                 'order' => 'ASC' );
                 $recent_posts = wp_get_recent_posts( $args );
                 $count = 0;
-                if ($settings_LSlide == 4 || $settings_LSlide == 8) {
+                if ($setting_number == 4 || $setting_number == 8) {
                     $maxcount = 1;
-                } elseif ($settings_LSlide == 3 || $settings_LSlide == 6){
+                } elseif ($setting_number == 3 || $setting_number == 6){
                     $maxcount = 2;
                 };
                 $numlist = 0;
