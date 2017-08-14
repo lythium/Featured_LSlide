@@ -29,10 +29,12 @@ $(document).ready(function(){
     };
     $(function () {
         autoInterv();
-        $multi.on("mouseover", function() {
-            stopAutoInterv();
+        $(".sliderApo").on("mouseenter", function(event) {
+            event.stopImmediatePropagation();
+            clearInterval(interval);
         });
-        $multi.on("mouseout", function() {
+        $(".sliderApo").on("mouseleave", function(event) {
+            event.stopImmediatePropagation()
             autoInterv();
         });
     });
