@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Lyth Slide Featured
+Plugin Name: Featured Lyth Slide
 Plugin URI:
 Description: Easy to use WordPress slide plugin for featured post with thumbnail and nice Breaking animation.
 Version: 0.1
