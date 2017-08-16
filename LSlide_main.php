@@ -2,7 +2,7 @@
 /*
 Plugin Name: Lyth Slide Featured
 Plugin URI:
-Description: Un plugin d'affichage des derniers articles dans slide
+Description: Easy to use WordPress slide plugin for featured post with thumbnail and nice Breaking animation.
 Version: 0.1
 Author: Lythium
 Author URI: https://www.lythium.fr
@@ -36,7 +36,7 @@ class LSlide_Plugin
 
     public function add_admin_menu()
     {
-        add_menu_page('Lyth Featured Slide Plugin', 'LSlide plugin', 'manage_options', 'LSlide', array($this, 'menu_html'));
+        add_menu_page('Featured Lyth Slide Plugin', 'LSlide plugin', 'manage_options', 'LSlide', array($this, 'menu_html'));
     }
 
     public function menu_html()
