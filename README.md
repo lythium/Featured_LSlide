@@ -19,29 +19,28 @@ Settings:
 
 == Installation ==
 
-1 - Download this plugin and place in plugin folder (wp-content/plugins).
-2 - go to the plugins page (Back office's url : www.Url/wp-admin/plugins.php ).
-3 - enable this plugin.
-3 - go to this plugin page (Back office's url : www.Url/wp-admin/admin.php?page=LSlide ).
-4 - add a slide with your's settings.
-5 - Copy the Shortcode in your content.
-6 - Is ready.
+1. Upload the plugin files to the `/wp-content/plugins/featured_lslide` directory, or install the plugin through the WordPress plugins screen directly.
+2. Activate the plugin through the 'Plugins' screen in WordPress
+3. go to this plugin page (Back office's url : www.Url/wp-admin/admin.php?page=LSlide ).
+4. add a slide with your's settings.
+5. Copy the Shortcode in your content.
+6. Is ready.
 
 == Screenshots ==
 
-/assets/screenshot/screenshot1.jpg
+1. /assets/screenshot/screenshot1.jpg
 Home Plugin and one page plugin
 
-/assets/screenshot/screenshot2.jpg
+2. assets/screenshot/screenshot2.jpg
 add a slide.
 
-/assets/screenshot/screenshot3.jpg
+3. /assets/screenshot/screenshot3.jpg
 update a slide.
 
-/assets/screenshot/screenshot4.jpg
+4. /assets/screenshot/screenshot4.jpg
 copy this shortcode in content and go front.
 
-/assets/screenshot/screenshot5.jpg
+5. /assets/screenshot/screenshot5.jpg
 Breaking animation.
 
 
