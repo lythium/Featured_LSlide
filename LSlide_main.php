@@ -36,7 +36,7 @@ class LSlide_Plugin
 
     public function add_admin_menu()
     {
-        add_menu_page('Lyth Slide Plugin', 'LSlide plugin', 'manage_options', 'LSlide', array($this, 'menu_html'));
+        add_menu_page('Lyth Featured Slide Plugin', 'LSlide plugin', 'manage_options', 'LSlide', array($this, 'menu_html'));
     }
 
     public function menu_html()

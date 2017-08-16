@@ -2,7 +2,7 @@
     <div class="acf-columns-2">
         <h1 class="wp-heading-inline"><?= get_admin_page_title() ?></h1>
         <?php include_once plugin_dir_path(__FILE__).'view_back_off_alert.php'; ?>
-        <p>Bienvenue sur la page d'accueil du plugin</p>
+        <p>Welcome in home's plugin</p>
         <table class="wp-list-table widefat fixed striped pages">
             <thead>
                 <tr>
@@ -42,7 +42,7 @@
                                         <span class="locked-text"></span>
                                     </div>
                                     <strong class="hide-update_<?= $ID ?>"><a class="row-title" href=""><?= $Name ?></a></strong>
-                                    <input class="show-update_<?= $ID ?>" name="update_name" value="<?= $Name ?>"> <!-- Name update-->
+                                    <input class="show-update_<?= $ID ?>" name="update_name" value="<?= $Name ?>" required> <!-- Name update-->
                                     <!-- Actions -->
                                     <div class="hide-update_<?= $ID ?>">
                                         <div class="row-actions hide-update_<?= $ID ?>" style="left:0;">
@@ -76,7 +76,7 @@
                                             <option value="8" <?= selected( $setting_number, 8 ) ?> >8</option>
                                         </select><br>
                                         <label for="update_speed">Speed:</label>
-                                        <input type="text" name="update_speed" value="7000">
+                                        <input type="text" name="update_speed" pattern="[0-9.]+" value="7000" required>
                                     </div>
                                 </td>
                                 <!-- Shortcode -->
@@ -106,7 +106,7 @@
                             <td class="options-td column-primary">
                                 <div class="form-add-SLide">
                                     <label for="add_name">Nom du Slide</label>
-                                    <input type="text" name="add_name" value="">
+                                    <input type="text" name="add_name" value="" required>
                                 </div>
                             </td>
                             <!-- Form d'ajout -->
@@ -120,7 +120,7 @@
                                         <option value="8">8</option>
                                     </select><br>
                                     <label for="add_speed">Speed:</label>
-                                    <input type="text" name="add_speed" value="7000">
+                                    <input type="text" name="add_speed" pattern="[0-9.]+" value="7000" required>
                                 </div>
                             </td>
                             <td class="submit-td resp-column">
