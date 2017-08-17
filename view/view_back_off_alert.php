@@ -25,7 +25,7 @@ if (isset($_GET["success"])):  ?>
 <?php elseif (isset($_GET["error"])):  ?>
     <?php if ($_GET["error"] == 1): ?>
         <div id="message" class="updated notice error LSlide_alert_delete is-dismissible">
-            <p>Erreur le nom est vide</p>
+            <p>Error, Name or speed is empty</p>
             <button type="button" class="notice-dismiss">
                 <span class="screen-reader-text">Ne pas tenir compte de ce message.</span>
             </button>

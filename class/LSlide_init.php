@@ -27,26 +27,32 @@ class Initialise_LSlide
         if (isset($_POST['buttonSubmit']) && !empty($_POST['buttonSubmit'])) {
             if ($_POST['buttonSubmit'] === "add") {
                 if (isset($_POST['add_name']) && !empty($_POST['add_name'])) {
-                    $LSlide_name = $_POST['add_name'];
-                    $LSlide_Settings = serialize(
-                        array(
-                            'number' => $_POST['add_number'],
-                            'speed' => $_POST['add_speed']
-                        )
-                    );
-
-                    $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}LSlide_Config WHERE LSlide_Name = '$LSlide_name'");
-                    if (is_null($row)) {
-                        $wpdb->insert(
-                            "{$wpdb->prefix}LSlide_Config",
+                    if (isset($_POST['add_speed']) && !empty($_POST['add_speed'])) {
+                        $LSlide_name = (string)sanitize_text_field($_POST['add_name']);
+                        $Number = (int)$_POST['add_number'];
+                        $Speed = (int)$_POST['add_speed'];
+                        $LSlide_Settings = (string)serialize(
                             array(
-                                'LSlide_Name' => $LSlide_name,
-                                'LSlide_Settings' => $LSlide_Settings,
+                                'number' => $Number,
+                                'speed' => $Speed
                             )
                         );
-                        wp_redirect( admin_url('admin.php?page=LSlide&success=1') );
+
+                        $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}LSlide_Config WHERE LSlide_Name = '$LSlide_name'");
+                        if (is_null($row)) {
+                            $wpdb->insert(
+                                "{$wpdb->prefix}LSlide_Config",
+                                array(
+                                    'LSlide_Name' => $LSlide_name,
+                                    'LSlide_Settings' => $LSlide_Settings,
+                                )
+                            );
+                            wp_redirect( admin_url('admin.php?page=LSlide&success=1') );
+                        } else {
+                            wp_redirect( admin_url('admin.php?page=LSlide&error=2') );
+                        };
                     } else {
-                        wp_redirect( admin_url('admin.php?page=LSlide&error=2') );
+                        wp_redirect( admin_url('admin.php?page=LSlide&error=1') );
                     };
                 } else {
                     wp_redirect( admin_url('admin.php?page=LSlide&error=1') );
@@ -55,51 +61,57 @@ class Initialise_LSlide
         } elseif (isset($_POST['buttonUpdate']) && !empty($_POST['buttonUpdate'])) {
             if ($_POST['buttonUpdate'] === "update") {
                 if (isset($_POST['update_name']) && !empty($_POST['update_name'])) {
-                    global $swpdb;
-                    $id_update = $_POST["update_id"];
-                    $LSlide_name_update = $_POST['update_name'];
-                    $LSlide_Settings_update = serialize(
-                        array(
-                            'number' => $_POST['update_number'],
-                            'speed' => $_POST['update_speed']
-                        )
-                    );
-                    $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}LSlide_Config WHERE LSlide_id = '$id_update'");
-                    if (!is_null($row)) {
-                       $wpdb->update(
-                           "{$wpdb->prefix}LSlide_Config",
-                           array(
-                               'LSlide_Name' => $LSlide_name_update,
-                               'LSlide_Settings' => $LSlide_Settings_update,
-                           ),
-                           array('LSlide_id' => $id_update),
-                           array( "%s", "%s"),
-                           array( "%s")
-                       );
-                       wp_redirect( admin_url('admin.php?page=LSlide&success=2') );
-                   } else {
-                       wp_redirect( admin_url('admin.php?page=LSlide&error=2') );
-                   };
-               } else {
-                   wp_redirect( admin_url('admin.php?page=LSlide&error=1') );
-               };
+                    if (isset($_POST['update_speed']) && !empty($_POST['update_speed'])) {
+                        global $swpdb;
+                        $id_update = (int)$_POST["update_id"];
+                        $LSlide_name_update = (string)sanitize_text_field($_POST['update_name']);
+                        $Number_update = (int)$_POST['update_number'];
+                        $Speed_update = (int)$_POST['update_speed'];
+                        $LSlide_Settings_update = (string)serialize(
+                            array(
+                                'number' => $Number_update,
+                                'speed' => $Speed_update
+                            )
+                        );
+                        $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}LSlide_Config WHERE LSlide_id = '$id_update'");
+                        if (!is_null($row)) {
+                            $wpdb->update(
+                                "{$wpdb->prefix}LSlide_Config",
+                                array(
+                                    'LSlide_Name' => $LSlide_name_update,
+                                    'LSlide_Settings' => $LSlide_Settings_update,
+                                ),
+                                array('LSlide_id' => $id_update),
+                                array( "%s", "%s"),
+                                array( "%s")
+                            );
+                            wp_redirect( admin_url('admin.php?page=LSlide&success=2') );
+                        } else {
+                            wp_redirect( admin_url('admin.php?page=LSlide&error=2') );
+                        };
+                    } else {
+                        wp_redirect( admin_url('admin.php?page=LSlide&error=1') );
+                    };
+                } else {
+                    wp_redirect( admin_url('admin.php?page=LSlide&error=1') );
+                };
             }
         } elseif (isset($_GET['action']) && $_GET['action'] === "delete") {
             if (isset($_GET['deleteLSlide']) && !empty($_GET['deleteLSlide'])) {
                 global $wpdb;
-                $delete_ID = $_GET['deleteLSlide'];
+                $delete_ID = (int)$_GET['deleteLSlide'];
                 $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}LSlide_Config WHERE LSlide_id = '$delete_ID'");
                 if (!is_null($row)) {
                     $wpdb->delete(
                         "{$wpdb->prefix}LSlide_Config",
                         array("LSlide_id" => $delete_ID
-                        )
-                    );
-                    wp_redirect( admin_url('admin.php?page=LSlide&success=3') );
-                } else {
-                    wp_redirect( admin_url('admin.php?page=LSlide&error=2') );
-                };
+                    )
+                );
+                wp_redirect( admin_url('admin.php?page=LSlide&success=3') );
+            } else {
+                wp_redirect( admin_url('admin.php?page=LSlide&error=2') );
             };
         };
-	}
+    };
+}
 };

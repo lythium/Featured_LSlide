@@ -42,7 +42,7 @@
                                         <span class="locked-text"></span>
                                     </div>
                                     <strong class="hide-update_<?= $ID ?>"><a class="row-title" href=""><?= $Name ?></a></strong>
-                                    <input class="show-update_<?= $ID ?>" name="update_name" value="<?= $Name ?>" required> <!-- Name update-->
+                                    <input class="show-update_<?= $ID ?>" name="update_name" value="<?= $Name ?>" pattern="[a-zA-Z0-9\s]+" required> <!-- Name update-->
                                     <!-- Actions -->
                                     <div class="hide-update_<?= $ID ?>">
                                         <div class="row-actions hide-update_<?= $ID ?>" style="left:0;">
@@ -106,7 +106,7 @@
                             <td class="options-td column-primary">
                                 <div class="form-add-SLide">
                                     <label for="add_name">Nom du Slide</label>
-                                    <input type="text" name="add_name" value="" required>
+                                    <input type="text" name="add_name" value="" pattern="[a-zA-Z0-9\s]+" required>
                                 </div>
                             </td>
                             <!-- Form d'ajout -->
