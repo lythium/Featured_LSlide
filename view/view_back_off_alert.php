@@ -2,21 +2,21 @@
 if (isset($_GET["success"])):  ?>
     <?php if ($_GET["success"] == 1): ?>
         <div id="message" class="updated notice LSlide_alert_delete is-dismissible">
-            <p>This item has been created.</p>
+            <p>Add Completed.</p>
             <button type="button" class="notice-dismiss">
                 <span class="screen-reader-text">Ne pas tenir compte de ce message.</span>
             </button>
         </div>
     <?php elseif ($_GET["success"] == 2): ?>
         <div id="message" class="updated notice LSlide_alert_delete is-dismissible">
-            <p>This item has been updated.</p>
+            <p>Update Completed.</p>
             <button type="button" class="notice-dismiss">
                 <span class="screen-reader-text">Ne pas tenir compte de ce message.</span>
             </button>
         </div>
     <?php elseif ($_GET["success"] == 3): ?>
         <div id="message" class="updated notice LSlide_alert_delete is-dismissible">
-            <p>L'élément a bien été supprimé.</p>
+            <p>Delete Completed.</p>
             <button type="button" class="notice-dismiss">
                 <span class="screen-reader-text">Ne pas tenir compte de ce message.</span>
             </button>
