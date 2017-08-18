@@ -76,7 +76,7 @@
                                             <option value="8" <?= selected( $setting_number, 8 ) ?> >8</option>
                                         </select><br>
                                         <label for="update_speed">Speed:</label>
-                                        <input type="text" name="update_speed" pattern="[0-9.]+" value="7000" required>
+                                        <input class="input_speed" type="number" name="update_speed" pattern="[0-9.]+" value="7000" required>
                                     </div>
                                 </td>
                                 <!-- Shortcode -->
@@ -120,7 +120,7 @@
                                         <option value="8">8</option>
                                     </select><br>
                                     <label for="add_speed">Speed:</label>
-                                    <input type="text" name="add_speed" pattern="[0-9.]+" value="7000" required>
+                                    <input type="number" class="input_speed" name="add_speed" pattern="[0-9.]+" value="7000" required>
                                 </div>
                             </td>
                             <td class="submit-td resp-column">

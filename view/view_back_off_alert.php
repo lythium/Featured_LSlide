@@ -37,5 +37,12 @@ if (isset($_GET["success"])):  ?>
                 <span class="screen-reader-text">Ne pas tenir compte de ce message.</span>
             </button>
         </div>
+    <?php elseif ($_GET["error"] == 3): ?>
+        <div id="message" class="updated notice error LSlide_alert_delete is-dismissible">
+            <p>Error.</p>
+            <button type="button" class="notice-dismiss">
+                <span class="screen-reader-text">Ne pas tenir compte de ce message.</span>
+            </button>
+        </div>
     <?php endif; ?>
 <?php endif; ?>

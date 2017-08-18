@@ -60,34 +60,38 @@ class Initialise_LSlide
             };
         } elseif (isset($_POST['buttonUpdate']) && !empty($_POST['buttonUpdate'])) {
             if ($_POST['buttonUpdate'] === "update") {
-                if (isset($_POST['update_name']) && !empty($_POST['update_name']) && is_string($_POST['update_name'])) {
-                    if (isset($_POST['update_speed']) && !empty($_POST['update_speed']) && is_int($_POST['update_speed'])) {
+                if (isset($_POST['update_name']) && !empty($_POST['update_name'])) {
+                    if (isset($_POST['update_speed']) && !empty($_POST['update_speed'])) {
                         global $swpdb;
                         $id_update = (int)$_POST["update_id"];
                         $LSlide_name_update = (string)sanitize_text_field($_POST['update_name']);
                         $Number_update = (int)$_POST['update_number'];
                         $Speed_update = (int)sanitize_text_field($_POST['update_speed']);
-                        $LSlide_Settings_update = (string)serialize(
-                            array(
-                                'number' => $Number_update,
-                                'speed' => $Speed_update
-                            )
-                        );
-                        $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}LSlide_Config WHERE LSlide_id = '$id_update'");
-                        if (!is_null($row)) {
-                            $wpdb->update(
-                                "{$wpdb->prefix}LSlide_Config",
+                        if (is_string($LSlide_name_update) && is_int($Speed_update && is_int($Number_update)) {
+                            $LSlide_Settings_update = (string)serialize(
                                 array(
-                                    'LSlide_Name' => $LSlide_name_update,
-                                    'LSlide_Settings' => $LSlide_Settings_update,
-                                ),
-                                array('LSlide_id' => $id_update),
-                                array( "%s", "%s"),
-                                array( "%s")
+                                    'number' => $Number_update,
+                                    'speed' => $Speed_update
+                                )
                             );
-                            wp_redirect( admin_url('admin.php?page=LSlide&success=2') );
+                            $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}LSlide_Config WHERE LSlide_id = '$id_update'");
+                            if (!is_null($row)) {
+                                $wpdb->update(
+                                    "{$wpdb->prefix}LSlide_Config",
+                                    array(
+                                        'LSlide_Name' => $LSlide_name_update,
+                                        'LSlide_Settings' => $LSlide_Settings_update,
+                                    ),
+                                    array('LSlide_id' => $id_update),
+                                    array( "%s", "%s"),
+                                    array( "%s")
+                                );
+                                wp_redirect( admin_url('admin.php?page=LSlide&success=2') );
+                            } else {
+                                wp_redirect( admin_url('admin.php?page=LSlide&error=2') );
+                            };
                         } else {
-                            wp_redirect( admin_url('admin.php?page=LSlide&error=2') );
+                            wp_redirect( admin_url('admin.php?page=LSlide&error=3') );
                         };
                     } else {
                         wp_redirect( admin_url('admin.php?page=LSlide&error=1') );
