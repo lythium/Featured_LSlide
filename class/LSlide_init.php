@@ -67,7 +67,7 @@ class Initialise_LSlide
                         $LSlide_name_update = (string)sanitize_text_field($_POST['update_name']);
                         $Number_update = (int)$_POST['update_number'];
                         $Speed_update = (int)sanitize_text_field($_POST['update_speed']);
-                        if (is_string($LSlide_name_update) && is_int($Speed_update && is_int($Number_update)) {
+                        if (is_string($LSlide_name_update) && is_int($Speed_update) && is_int($Number_update)) {
                             $LSlide_Settings_update = (string)serialize(
                                 array(
                                     'number' => $Number_update,
