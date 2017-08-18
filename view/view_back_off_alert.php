@@ -2,14 +2,14 @@
 if (isset($_GET["success"])):  ?>
     <?php if ($_GET["success"] == 1): ?>
         <div id="message" class="updated notice LSlide_alert_delete is-dismissible">
-            <p>L'élément a bien été créer.</p>
+            <p>This item has been created.</p>
             <button type="button" class="notice-dismiss">
                 <span class="screen-reader-text">Ne pas tenir compte de ce message.</span>
             </button>
         </div>
     <?php elseif ($_GET["success"] == 2): ?>
         <div id="message" class="updated notice LSlide_alert_delete is-dismissible">
-            <p>L'élément a bien été mis à jour.</p>
+            <p>This item has been updated.</p>
             <button type="button" class="notice-dismiss">
                 <span class="screen-reader-text">Ne pas tenir compte de ce message.</span>
             </button>
@@ -32,7 +32,7 @@ if (isset($_GET["success"])):  ?>
         </div>
     <?php elseif ($_GET["error"] == 2): ?>
         <div id="message" class="updated notice error LSlide_alert_delete is-dismissible">
-            <p>Erreur de Database.</p>
+            <p>Error of Database.</p>
             <button type="button" class="notice-dismiss">
                 <span class="screen-reader-text">Ne pas tenir compte de ce message.</span>
             </button>

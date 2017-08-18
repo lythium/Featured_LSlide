@@ -26,11 +26,11 @@ class Initialise_LSlide
         global $wpdb;
         if (isset($_POST['buttonSubmit']) && !empty($_POST['buttonSubmit'])) {
             if ($_POST['buttonSubmit'] === "add") {
-                if (isset($_POST['add_name']) && !empty($_POST['add_name'])) {
-                    if (isset($_POST['add_speed']) && !empty($_POST['add_speed'])) {
+                if (isset($_POST['add_name']) && !empty($_POST['add_name']) && is_string($_POST['add_name'])) {
+                    if (isset($_POST['add_speed']) && !empty($_POST['add_speed']) && is_int($_POST['add_speed'])) {
                         $LSlide_name = (string)sanitize_text_field($_POST['add_name']);
                         $Number = (int)$_POST['add_number'];
-                        $Speed = (int)$_POST['add_speed'];
+                        $Speed = (int)sanitize_text_field($_POST['add_speed']);
                         $LSlide_Settings = (string)serialize(
                             array(
                                 'number' => $Number,
@@ -60,13 +60,13 @@ class Initialise_LSlide
             };
         } elseif (isset($_POST['buttonUpdate']) && !empty($_POST['buttonUpdate'])) {
             if ($_POST['buttonUpdate'] === "update") {
-                if (isset($_POST['update_name']) && !empty($_POST['update_name'])) {
-                    if (isset($_POST['update_speed']) && !empty($_POST['update_speed'])) {
+                if (isset($_POST['update_name']) && !empty($_POST['update_name']) && is_string($_POST['update_name'])) {
+                    if (isset($_POST['update_speed']) && !empty($_POST['update_speed']) && is_int($_POST['update_speed'])) {
                         global $swpdb;
                         $id_update = (int)$_POST["update_id"];
                         $LSlide_name_update = (string)sanitize_text_field($_POST['update_name']);
                         $Number_update = (int)$_POST['update_number'];
-                        $Speed_update = (int)$_POST['update_speed'];
+                        $Speed_update = (int)sanitize_text_field($_POST['update_speed']);
                         $LSlide_Settings_update = (string)serialize(
                             array(
                                 'number' => $Number_update,
