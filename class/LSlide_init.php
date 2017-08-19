@@ -29,7 +29,7 @@ class Initialise_LSlide
                 if (isset($_POST['add_name']) && !empty($_POST['add_name'])) {
                     if (isset($_POST['add_speed']) && !empty($_POST['add_speed'])) {
                         $LSlide_name_add = (string)sanitize_text_field($_POST['add_name']);
-                        $Number_add = (int)$_POST['add_number'];
+                        $Number_add = (int)sanitize_text_field($_POST['add_number']);
                         $Speed_add = (int)sanitize_text_field($_POST['add_speed']);
                         if (is_string($LSlide_name_add) && is_int($Speed_add) && is_int($Number_add)) {
                             $LSlide_Settings_add = (string)serialize(
@@ -69,7 +69,7 @@ class Initialise_LSlide
                         global $swpdb;
                         $id_update = (int)$_POST["update_id"];
                         $LSlide_name_update = (string)sanitize_text_field($_POST['update_name']);
-                        $Number_update = (int)$_POST['update_number'];
+                        $Number_update = (int)sanitize_text_field($_POST['update_number']);
                         $Speed_update = (int)sanitize_text_field($_POST['update_speed']);
                         if (is_string($LSlide_name_update) && is_int($Speed_update) && is_int($Number_update)) {
                             $LSlide_Settings_update = (string)serialize(
