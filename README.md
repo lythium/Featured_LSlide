@@ -1,4 +1,4 @@
-=== Featured LSlide ===
+=== Featured Lyth Slide ===
 Contributors: Lythium, Ever Team
 Tags: featured post, slider, récent post, slide, thumbnail
 Requires at least: 4.7
