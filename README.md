@@ -44,6 +44,10 @@ copy this shortcode in content and go front.
 5. /assets/screenshot/screenshot5.jpg
 Breaking animation.
 
+== Frequently Asked Questions ==
+
+== Upgrade Notice ==
+
 == Changelog ==
 
 = 1.0 =
